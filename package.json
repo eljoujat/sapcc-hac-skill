@@ -1,0 +1,49 @@
+{
+  "name": "sapcc-hac-skill",
+  "version": "1.0.0",
+  "description": "Pi agent skill for SAP Commerce Cloud – execute Groovy scripts and FlexibleSearch queries via the HAC using sapcc-hac-client",
+  "main": "scripts/execute.js",
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "test": "node scripts/execute.js --health-check"
+  },
+  "keywords": [
+    "sapcommerce",
+    "hybris",
+    "hac",
+    "groovy",
+    "flexiblesearch",
+    "sap",
+    "pi-skill",
+    "agent-skill",
+    "ccv2"
+  ],
+  "author": {
+    "name": "Youssef El Jaoujat",
+    "email": "youssef.el.jaoujat@gmail.com",
+    "url": "https://github.com/eljoujat"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eljoujat/sapcc-hac-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eljoujat/sapcc-hac-skill/issues"
+  },
+  "homepage": "https://github.com/eljoujat/sapcc-hac-skill#readme",
+  "dependencies": {
+    "sapcc-hac-client": "^1.0.3",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "SKILL.md",
+    "scripts/",
+    "references/",
+    ".env.example",
+    "README.md"
+  ]
+}
