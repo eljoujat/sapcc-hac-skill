@@ -1,13 +1,9 @@
 ---
 name: sapcc-hac-skill
-version: 1.0.0
-description: SAP Commerce Cloud HAC interaction via Groovy scripts or FlexibleSearch queries. Use this skill when the user asks to query, inspect, modify or administrate a SAP Commerce Cloud (Hybris) instance – e.g. find products, orders, customers, run ImpEx, check cronjobs, execute business logic, or retrieve platform data. Automatically selects Groovy or FlexSearch based on request complexity.
+description: SAP Commerce Cloud HAC interaction via Groovy scripts or FlexibleSearch queries. Use this skill when the user asks to query, inspect, modify or administrate a SAP Commerce Cloud (Hybris / CCv2) instance – e.g. find products, orders, customers, run ImpEx, check cronjobs, execute business logic, or retrieve platform data. Automatically selects Groovy or FlexSearch based on request complexity.
 license: MIT
-homepage: https://github.com/eljoujat/sapcc-hac-skill
-compatibility: Requires Node.js >= 18. SAP CC instance URL and credentials must be set in a .env file (HAC_URL, HAC_USERNAME, HAC_PASSWORD).
-metadata:
-  author: eljoujat
-  version: 1.0.0
+compatibility: Requires Node.js >= 18. SAP CC credentials must be set in .env (HAC_URL, HAC_USERNAME, HAC_PASSWORD). Run npm install in the skill directory before first use.
+metadata: {"author":"eljoujat","version":"1.0.0","homepage":"https://github.com/eljoujat/sapcc-hac-skill","tags":["sapcommerce","hybris","hac","groovy","flexiblesearch","ccv2"]}
 ---
 
 # SAP Commerce Cloud HAC Skill
@@ -17,6 +13,8 @@ Interact with a SAP Commerce Cloud (Hybris/CCv2) instance through the **Hybris A
 The skill automatically decides whether to use:
 - **FlexibleSearch** – for data queries (SELECT/WHERE on SAP CC types)
 - **Groovy script** – for complex logic, service calls, multi-step operations, or writes
+
+Works with **Claude Code, Cursor, Copilot, Codex, Pi** and any agent compatible with the [Agent Skills](https://agentskills.io) format.
 
 ---
 
@@ -47,6 +45,7 @@ HAC_TIMEOUT=30000
 Verify setup:
 
 ```bash
+node <skill-dir>/scripts/setup.js
 node <skill-dir>/scripts/execute.js --health-check
 ```
 
