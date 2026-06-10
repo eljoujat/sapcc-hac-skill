@@ -1,16 +1,16 @@
-# sapcc-hac-skill — From Natural Language to SAP Commerce Cloud
+# sapcc-skill — SAP Commerce Cloud Agent Skill
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/eljoujat/sapcc-hac-skill?style=flat&logo=github)](https://github.com/eljoujat/sapcc-hac-skill/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/eljoujat/sapcc-hac-skill?style=flat&logo=github)](https://github.com/eljoujat/sapcc-hac-skill/network/members)
-[![Latest Release](https://img.shields.io/github/v/release/eljoujat/sapcc-hac-skill?logo=github)](https://github.com/eljoujat/sapcc-hac-skill/releases/latest)
-[![Last Commit](https://img.shields.io/github/last-commit/eljoujat/sapcc-hac-skill?logo=github)](https://github.com/eljoujat/sapcc-hac-skill/commits/main)
+[![GitHub stars](https://img.shields.io/github/stars/eljoujat/sapcc-skill?style=flat&logo=github)](https://github.com/eljoujat/sapcc-skill/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/eljoujat/sapcc-skill?style=flat&logo=github)](https://github.com/eljoujat/sapcc-skill/network/members)
+[![Latest Release](https://img.shields.io/github/v/release/eljoujat/sapcc-skill?logo=github)](https://github.com/eljoujat/sapcc-skill/releases/latest)
+[![Last Commit](https://img.shields.io/github/last-commit/eljoujat/sapcc-skill?logo=github)](https://github.com/eljoujat/sapcc-skill/commits/main)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-2ea44f)](https://agentskills.io)
 [![npm](https://img.shields.io/badge/powered%20by-sapcc--hac--client-blue)](https://www.npmjs.com/package/sapcc-hac-client)
 
 **English** · [العربية](README_AR.md)
 
-A skill that turns natural-language requests into **Groovy scripts** or **FlexibleSearch queries** and executes them live on a SAP Commerce Cloud (Hybris / CCv2) instance via the HAC. The agent automatically picks the right tool based on your intent — no manual query writing needed.
+A skill that turns natural-language requests into **Groovy scripts** or **FlexibleSearch queries** and executes them live on a SAP Commerce Cloud (Hybris / CCv2) instance. The agent automatically picks the right tool based on your intent — no manual query writing needed. Built on top of [`sapcc-hac-client`](https://www.npmjs.com/package/sapcc-hac-client), and designed to grow into a full SAP CC operations skill.
 
 Works with **Claude Code, Cursor, GitHub Copilot, Codex, Pi** and any agent compatible with the [Agent Skills](https://agentskills.io) format.
 
@@ -34,21 +34,21 @@ Works with **Claude Code, Cursor, GitHub Copilot, Codex, Pi** and any agent comp
 
 ```bash
 # Any agent (Claude Code, Cursor, Copilot, Pi, ...)
-npx skills add github:eljoujat/sapcc-hac-skill
+npx skills add github:eljoujat/sapcc-skill
 ```
 
 ```bash
 # Manual install — Pi
-git clone https://github.com/eljoujat/sapcc-hac-skill.git \
-  ~/.pi/agent/skills/sapcc-hac-skill
-cd ~/.pi/agent/skills/sapcc-hac-skill && npm install
+git clone https://github.com/eljoujat/sapcc-skill.git \
+  ~/.pi/agent/skills/sapcc-skill
+cd ~/.pi/agent/skills/sapcc-skill && npm install
 ```
 
 ```bash
 # Manual install — Claude Code / Codex
-git clone https://github.com/eljoujat/sapcc-hac-skill.git \
-  ~/.claude/skills/sapcc-hac-skill
-cd ~/.claude/skills/sapcc-hac-skill && npm install
+git clone https://github.com/eljoujat/sapcc-skill.git \
+  ~/.claude/skills/sapcc-skill
+cd ~/.claude/skills/sapcc-skill && npm install
 ```
 
 ### 2. Configure credentials
@@ -56,7 +56,7 @@ cd ~/.claude/skills/sapcc-hac-skill && npm install
 Create a `.env` file in your **project root** (the skill also accepts one in its own directory as fallback):
 
 ```bash
-cp ~/.pi/agent/skills/sapcc-hac-skill/.env.example .env
+cp ~/.pi/agent/skills/sapcc-skill/.env.example .env
 ```
 
 Fill in your values:
@@ -208,7 +208,7 @@ The skill loads these on-demand when needed:
 ## 🏗️ Project Structure
 
 ```
-sapcc-hac-skill/
+sapcc-skill/
 ├── SKILL.md                    # Agent Skills definition (loaded by any compatible agent)
 ├── package.json                # Dependency: sapcc-hac-client
 ├── .env.example                # Credentials template
@@ -231,12 +231,12 @@ sapcc-hac-skill/
 
 | Agent | Supported | Install path |
 |---|---|---|
-| **Pi** | ✅ | `~/.pi/agent/skills/sapcc-hac-skill/` |
-| **Claude Code** | ✅ | `~/.claude/skills/sapcc-hac-skill/` |
-| **Cursor** | ✅ | `~/.cursor/skills/sapcc-hac-skill/` |
-| **GitHub Copilot** | ✅ | `.github/skills/sapcc-hac-skill/` |
-| **Codex** | ✅ | `~/.codex/skills/sapcc-hac-skill/` |
-| **OpenClaw / Hermes** | ✅ | `~/.agents/skills/sapcc-hac-skill/` |
+| **Pi** | ✅ | `~/.pi/agent/skills/sapcc-skill/` |
+| **Claude Code** | ✅ | `~/.claude/skills/sapcc-skill/` |
+| **Cursor** | ✅ | `~/.cursor/skills/sapcc-skill/` |
+| **GitHub Copilot** | ✅ | `.github/skills/sapcc-skill/` |
+| **Codex** | ✅ | `~/.codex/skills/sapcc-skill/` |
+| **OpenClaw / Hermes** | ✅ | `~/.agents/skills/sapcc-skill/` |
 | Any [Agent Skills](https://agentskills.io)-compatible agent | ✅ | Per-agent skills directory |
 
 ---

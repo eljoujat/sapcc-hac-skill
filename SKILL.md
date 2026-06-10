@@ -1,14 +1,14 @@
 ---
-name: sapcc-hac-skill
-description: SAP Commerce Cloud HAC interaction via Groovy scripts or FlexibleSearch queries. Use this skill when the user asks to query, inspect, modify or administrate a SAP Commerce Cloud (Hybris / CCv2) instance – e.g. find products, orders, customers, run ImpEx, check cronjobs, execute business logic, or retrieve platform data. Automatically selects Groovy or FlexSearch based on request complexity.
+name: sapcc-skill
+description: SAP Commerce Cloud skill for querying, administrating and operating a SAP CC (Hybris / CCv2) instance. Use this skill when the user asks to query, inspect, modify or administrate SAP Commerce Cloud – e.g. find products, orders, customers, run ImpEx, check cronjobs, execute business logic, or retrieve platform data. Automatically selects Groovy or FlexSearch based on request complexity.
 license: MIT
 compatibility: Requires Node.js >= 18. SAP CC credentials must be set in .env (HAC_URL, HAC_USERNAME, HAC_PASSWORD). Dependencies are installed automatically on first use — no manual npm install needed.
-metadata: {"author":"eljoujat","version":"1.0.0","homepage":"https://github.com/eljoujat/sapcc-hac-skill","tags":["sapcommerce","hybris","hac","groovy","flexiblesearch","ccv2"]}
+metadata: {"author":"eljoujat","version":"2.0.0","homepage":"https://github.com/eljoujat/sapcc-skill","tags":["sapcommerce","hybris","groovy","flexiblesearch","ccv2","sap"]}
 ---
 
-# SAP Commerce Cloud HAC Skill
+# SAP Commerce Cloud Skill
 
-Interact with a SAP Commerce Cloud (Hybris/CCv2) instance through the **Hybris Administration Console (HAC)** using [`sapcc-hac-client`](https://www.npmjs.com/package/sapcc-hac-client).
+Interact with a SAP Commerce Cloud (Hybris/CCv2) instance using [`sapcc-hac-client`](https://www.npmjs.com/package/sapcc-hac-client) — currently supporting Groovy scripts and FlexibleSearch queries. Designed to be extended with additional SAP CC capabilities over time.
 
 The skill automatically decides whether to use:
 - **FlexibleSearch** – for data queries (SELECT/WHERE on SAP CC types)

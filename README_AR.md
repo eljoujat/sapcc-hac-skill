@@ -1,18 +1,18 @@
 <div dir="rtl">
 
-# sapcc-hac-skill — من اللغة الطبيعية إلى SAP Commerce Cloud
+# sapcc-skill — مهارة وكيل SAP Commerce Cloud
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/eljoujat/sapcc-hac-skill?style=flat&logo=github)](https://github.com/eljoujat/sapcc-hac-skill/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/eljoujat/sapcc-hac-skill?style=flat&logo=github)](https://github.com/eljoujat/sapcc-hac-skill/network/members)
-[![Latest Release](https://img.shields.io/github/v/release/eljoujat/sapcc-hac-skill?logo=github)](https://github.com/eljoujat/sapcc-hac-skill/releases/latest)
-[![Last Commit](https://img.shields.io/github/last-commit/eljoujat/sapcc-hac-skill?logo=github)](https://github.com/eljoujat/sapcc-hac-skill/commits/main)
+[![GitHub stars](https://img.shields.io/github/stars/eljoujat/sapcc-skill?style=flat&logo=github)](https://github.com/eljoujat/sapcc-skill/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/eljoujat/sapcc-skill?style=flat&logo=github)](https://github.com/eljoujat/sapcc-skill/network/members)
+[![Latest Release](https://img.shields.io/github/v/release/eljoujat/sapcc-skill?logo=github)](https://github.com/eljoujat/sapcc-skill/releases/latest)
+[![Last Commit](https://img.shields.io/github/last-commit/eljoujat/sapcc-skill?logo=github)](https://github.com/eljoujat/sapcc-skill/commits/main)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-متوافق-2ea44f)](https://agentskills.io)
 [![npm](https://img.shields.io/badge/مشغَّل%20بواسطة-sapcc--hac--client-blue)](https://www.npmjs.com/package/sapcc-hac-client)
 
 [English](README.md) · **العربية**
 
-مهارة وكيل ذكاء اصطناعي تحوّل طلبات اللغة الطبيعية إلى **سكريبتات Groovy** أو **استعلامات FlexibleSearch** وتُنفّذها مباشرةً على نسخة SAP Commerce Cloud (Hybris / CCv2) عبر وحدة تحكم HAC. يختار الوكيل تلقائياً الأداة المناسبة بناءً على قصدك — دون الحاجة إلى كتابة استعلامات يدوياً.
+مهارة وكيل ذكاء اصطناعي تحوّل طلبات اللغة الطبيعية إلى **سكريبتات Groovy** أو **استعلامات FlexibleSearch** وتُنفّذها مباشرةً على نسخة SAP Commerce Cloud (Hybris / CCv2). يختار الوكيل تلقائياً الأداة المناسبة بناءً على قصدك — دون الحاجة إلى كتابة استعلامات يدوياً. مبنيّة على [`sapcc-hac-client`](https://www.npmjs.com/package/sapcc-hac-client)، ومصمَّمة للتوسع لتشمل ميزات تشغيل SAP CC الإضافية.
 
 متوافق مع **Claude Code وCursor وGitHub Copilot وCodex وPi** وأي وكيل ذكاء اصطناعي يدعم معيار [Agent Skills](https://agentskills.io).
 
@@ -36,21 +36,21 @@
 
 ```bash
 # أي وكيل (Claude Code, Cursor, Copilot, Pi, ...)
-npx skills add github:eljoujat/sapcc-hac-skill
+npx skills add github:eljoujat/sapcc-skill
 ```
 
 ```bash
 # تثبيت يدوي — Pi
-git clone https://github.com/eljoujat/sapcc-hac-skill.git \
-  ~/.pi/agent/skills/sapcc-hac-skill
-cd ~/.pi/agent/skills/sapcc-hac-skill && npm install
+git clone https://github.com/eljoujat/sapcc-skill.git \
+  ~/.pi/agent/skills/sapcc-skill
+cd ~/.pi/agent/skills/sapcc-skill && npm install
 ```
 
 ```bash
 # تثبيت يدوي — Claude Code / Codex
-git clone https://github.com/eljoujat/sapcc-hac-skill.git \
-  ~/.claude/skills/sapcc-hac-skill
-cd ~/.claude/skills/sapcc-hac-skill && npm install
+git clone https://github.com/eljoujat/sapcc-skill.git \
+  ~/.claude/skills/sapcc-skill
+cd ~/.claude/skills/sapcc-skill && npm install
 ```
 
 ### 2. إعداد بيانات الاعتماد
@@ -58,7 +58,7 @@ cd ~/.claude/skills/sapcc-hac-skill && npm install
 أنشئ ملف `.env` في **جذر مشروعك** (تقبل المهارة أيضاً ملفاً في مجلدها كاحتياط):
 
 ```bash
-cp ~/.pi/agent/skills/sapcc-hac-skill/.env.example .env
+cp ~/.pi/agent/skills/sapcc-skill/.env.example .env
 ```
 
 أكمل القيم:
@@ -208,7 +208,7 @@ node <مجلد-المهارة>/scripts/execute.js --health-check
 ## 🏗️ هيكل المشروع
 
 ```
-sapcc-hac-skill/
+sapcc-skill/
 ├── SKILL.md                    # تعريف Agent Skills (يُحمَّل بأي وكيل متوافق)
 ├── package.json                # التبعية: sapcc-hac-client
 ├── .env.example                # قالب بيانات الاعتماد
@@ -231,12 +231,12 @@ sapcc-hac-skill/
 
 | الوكيل | مدعوم | مسار التثبيت |
 |---|---|---|
-| **Pi** | ✅ | `~/.pi/agent/skills/sapcc-hac-skill/` |
-| **Claude Code** | ✅ | `~/.claude/skills/sapcc-hac-skill/` |
-| **Cursor** | ✅ | `~/.cursor/skills/sapcc-hac-skill/` |
-| **GitHub Copilot** | ✅ | `.github/skills/sapcc-hac-skill/` |
-| **Codex** | ✅ | `~/.codex/skills/sapcc-hac-skill/` |
-| **OpenClaw / Hermes** | ✅ | `~/.agents/skills/sapcc-hac-skill/` |
+| **Pi** | ✅ | `~/.pi/agent/skills/sapcc-skill/` |
+| **Claude Code** | ✅ | `~/.claude/skills/sapcc-skill/` |
+| **Cursor** | ✅ | `~/.cursor/skills/sapcc-skill/` |
+| **GitHub Copilot** | ✅ | `.github/skills/sapcc-skill/` |
+| **Codex** | ✅ | `~/.codex/skills/sapcc-skill/` |
+| **OpenClaw / Hermes** | ✅ | `~/.agents/skills/sapcc-skill/` |
 | أي وكيل متوافق مع [Agent Skills](https://agentskills.io) | ✅ | مجلد المهارات الخاص بالوكيل |
 
 ---
