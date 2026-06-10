@@ -30,6 +30,38 @@
 const path  = require('path');
 const fs    = require('fs');
 
+// ─── Auto-install dependencies on first use ────────────────────────────────
+// Runs npm install once (stamp file prevents repeat installs).
+// The agent never needs to call npm install manually.
+
+(function ensureDeps() {
+  const skillDir  = path.join(__dirname, '..');
+  const nmDir     = path.join(skillDir, 'node_modules');
+  const stampFile = path.join(skillDir, 'node_modules', '.sapcc-hac-installed');
+
+  // Already installed? Skip immediately.
+  if (fs.existsSync(stampFile)) return;
+  // node_modules exists but no stamp (manual install) – write stamp and skip.
+  if (fs.existsSync(path.join(nmDir, 'sapcc-hac-client'))) {
+    try { fs.writeFileSync(stampFile, new Date().toISOString()); } catch (_) {}
+    return;
+  }
+
+  process.stderr.write('[sapcc-hac-skill] First run – installing dependencies...\n');
+  try {
+    const { execSync } = require('child_process');
+    execSync('npm install --prefer-offline --no-audit --no-fund --loglevel=error', {
+      cwd: skillDir,
+      stdio: ['ignore', 'ignore', 'pipe'],
+      timeout: 90_000,
+    });
+    try { fs.writeFileSync(stampFile, new Date().toISOString()); } catch (_) {}
+    process.stderr.write('[sapcc-hac-skill] Dependencies installed.\n');
+  } catch (e) {
+    process.stderr.write(`[sapcc-hac-skill] npm install failed: ${e.message}\n`);
+  }
+}());
+
 // ─── Argument parsing (no extra deps) ──────────────────────────────────────
 
 const args = process.argv.slice(2);
@@ -61,13 +93,17 @@ const scriptType  = getArg('--script-type', 'groovy'); // groovy | beanshell
 
 let createClient;
 try {
-  // Try resolving from skill directory first, then global
   const clientPath = require.resolve('sapcc-hac-client', {
     paths: [__dirname, path.join(__dirname, '..'), process.cwd()],
   });
   ({ createClient } = require(clientPath));
 } catch (e) {
-  output({ success: false, error: `sapcc-hac-client not found. Run: npm install in ${path.dirname(__dirname)}` });
+  // Should never happen after ensureDeps() – surface a clear message just in case.
+  console.log(JSON.stringify({
+    success: false,
+    error: 'sapcc-hac-client not found after auto-install attempt.',
+    hint: `Run manually: cd ${path.join(__dirname, '..')} && npm install`,
+  }, null, 2));
   process.exit(1);
 }
 

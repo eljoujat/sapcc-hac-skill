@@ -2,7 +2,7 @@
 name: sapcc-hac-skill
 description: SAP Commerce Cloud HAC interaction via Groovy scripts or FlexibleSearch queries. Use this skill when the user asks to query, inspect, modify or administrate a SAP Commerce Cloud (Hybris / CCv2) instance – e.g. find products, orders, customers, run ImpEx, check cronjobs, execute business logic, or retrieve platform data. Automatically selects Groovy or FlexSearch based on request complexity.
 license: MIT
-compatibility: Requires Node.js >= 18. SAP CC credentials must be set in .env (HAC_URL, HAC_USERNAME, HAC_PASSWORD). Run npm install in the skill directory before first use.
+compatibility: Requires Node.js >= 18. SAP CC credentials must be set in .env (HAC_URL, HAC_USERNAME, HAC_PASSWORD). Dependencies are installed automatically on first use — no manual npm install needed.
 metadata: {"author":"eljoujat","version":"1.0.0","homepage":"https://github.com/eljoujat/sapcc-hac-skill","tags":["sapcommerce","hybris","hac","groovy","flexiblesearch","ccv2"]}
 ---
 
@@ -20,11 +20,7 @@ Works with **Claude Code, Cursor, Copilot, Codex, Pi** and any agent compatible 
 
 ## Setup
 
-Run once after installation:
-
-```bash
-cd <skill-dir> && npm install
-```
+Dependencies are **installed automatically** the first time `execute.js` runs — no manual `npm install` needed.
 
 Create a `.env` file in your project root (or in the skill directory as fallback):
 
@@ -45,7 +41,6 @@ HAC_TIMEOUT=30000
 Verify setup:
 
 ```bash
-node <skill-dir>/scripts/setup.js
 node <skill-dir>/scripts/execute.js --health-check
 ```
 
